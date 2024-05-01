@@ -231,7 +231,6 @@ export class GrafanaApp {
         config,
       };
 
-
       const root = createRoot(document.getElementById('reactRoot')!);
       root.render(
         React.createElement(AppWrapper, {

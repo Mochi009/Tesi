@@ -11,12 +11,11 @@ import { GrafanaRouteError } from './GrafanaRouteError';
 import { GrafanaRouteLoading } from './GrafanaRouteLoading';
 import { GrafanaRouteComponentProps, RouteDescriptor } from './types';
 
-export interface Props extends Omit<GrafanaRouteComponentProps, 'queryParams'> { }
+export interface Props extends Omit<GrafanaRouteComponentProps, 'queryParams'> {}
 
 export function GrafanaRoute(props: Props) {
   const { chrome, keybindings } = useGrafana();
   let [panelId, setPanelId] = useState(locationSearchToObject(props.location.search).panelId);
-
 
   chrome.setMatchedRoute(props.route);
 
@@ -47,7 +46,7 @@ export function GrafanaRoute(props: Props) {
     const receiveMessage = (event: any) => {
       if (event.data.panelId != undefined) {
         setPanelId(event.data.panelId);
-      };
+      }
     };
 
     window.addEventListener('message', receiveMessage);
@@ -68,7 +67,10 @@ export function GrafanaRoute(props: Props) {
 
         return (
           <Suspense fallback={<GrafanaRouteLoading />}>
-            <props.route.component {...props} queryParams={{ ...locationSearchToObject(props.location.search), panelId }} />
+            <props.route.component
+              {...props}
+              queryParams={{ ...locationSearchToObject(props.location.search), panelId }}
+            />
           </Suspense>
         );
       }}

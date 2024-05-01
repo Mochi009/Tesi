@@ -102,12 +102,12 @@ export class PanelStateWrapper extends PureComponent<Props, State> {
         onToggleSeriesVisibility: this.onSeriesVisibilityChange,
         onAnnotationCreate: undefined,
         onAnnotationUpdate: undefined,
-        onAnnotationDelete: undefined, // Annotation delete 
+        onAnnotationDelete: undefined, // Annotation delete
         onInstanceStateChange: this.onInstanceStateChange,
         onToggleLegendSort: this.onToggleLegendSort,
         canAddAnnotations: undefined,
         canEditAnnotations: undefined,
-        canDeleteAnnotations: undefined,// Annotation delete 
+        canDeleteAnnotations: undefined, // Annotation delete
         onAddAdHocFilter: this.onAddAdHocFilter,
         onUpdateData: this.onUpdateData,
       },
@@ -255,7 +255,6 @@ export class PanelStateWrapper extends PureComponent<Props, State> {
     return () => {
       window.removeEventListener('message', receiveMessage);
     };
-
   }
 
   componentWillUnmount() {
@@ -305,7 +304,6 @@ export class PanelStateWrapper extends PureComponent<Props, State> {
     if (width !== prevProps.width) {
       liveTimer.updateInterval(this);
     }
-
   }
 
   // Updates the response with information from the stream
